@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
+import { Button as UIButton } from '../../components/ui';
+
 interface Props extends ThemeProps {
-  variant?: 'light' | 'dark';
+  variant: 'light' | 'dark' | 'none';
 }
 
 export const Container = styled.div<Props>`
@@ -10,8 +12,7 @@ export const Container = styled.div<Props>`
   padding: 15px 10px;
   height: 100%;
   transition: all ${({ theme }: Props) => theme.transitions.easeInOut.fast};
-  background: ${({ variant, theme }: Props) =>
-    variant === 'light' ? theme.colors.light.base : theme.colors.dark.base};
+  background: ${({ variant, theme }: Props) => theme.colors[variant].base};
 
   @media (min-width: 425px) {
     padding: 35px;
@@ -34,5 +35,13 @@ export const Main = styled.main`
   @media (min-width: 768px) {
     flex-direction: column-reverse;
     justify-content: space-around;
+  }
+`;
+
+export const Button = styled(UIButton)`
+  min-width: 280px;
+
+  @media (min-width: 475px) {
+    min-width: 347px;
   }
 `;

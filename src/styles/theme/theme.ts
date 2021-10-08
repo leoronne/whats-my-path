@@ -28,6 +28,19 @@ export const colors: ColorsProps = {
       hover: 'rgba(42, 42, 42, 0.93)',
     },
   },
+  none: {
+    base: 'rgba(255, 255, 255, 1)',
+    text: 'rgba(44, 151, 209, 1)',
+    button: {
+      background: 'rgba(44, 151, 209, 1)',
+      text: 'rgba(255, 255, 255, 1)',
+      hover: 'rgba(44, 151, 209, 0.85)',
+    },
+  },
+  disabled: {
+    text: 'rgba(255, 255, 255, 1)',
+    base: 'rgba(159, 159, 159, 1)',
+  },
 };
 
 export const transitions: TransitionsProps = {

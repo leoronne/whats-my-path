@@ -6,7 +6,7 @@ import luke from '../../../assets/img/png/luke.png';
 import * as Styles from './styles';
 
 interface MastersInformationProps {
-  path: 'dark' | 'light';
+  path: 'dark' | 'light' | 'none';
   name: string;
 }
 

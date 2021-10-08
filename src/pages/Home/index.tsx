@@ -1,11 +1,18 @@
 import { useHistory } from 'react-router-dom';
 
+import { usePeople } from '../../hooks';
+
+import { LoaderSpinner } from '../../components/ui';
+
 import * as Styles from './styles';
 
 function Home() {
+  const { getPath, loading } = usePeople();
+
   const history = useHistory();
 
-  const handleStart = () => {
+  const handleStart = async () => {
+    await getPath();
     history.push('/master');
   };
 
@@ -18,8 +25,8 @@ function Home() {
         <Styles.SubTitle color_scheme="accent">Frontend Challenge</Styles.SubTitle>
       </Styles.Header>
       <Styles.Main>
-        <Styles.Button type="button" color_scheme="accent" onClick={handleStart}>
-          <span>Start</span>
+        <Styles.Button type="button" color_scheme="accent" onClick={handleStart} disabled={loading}>
+          {loading ? <LoaderSpinner /> : <span>Start</span>}
         </Styles.Button>
       </Styles.Main>
     </Styles.Container>

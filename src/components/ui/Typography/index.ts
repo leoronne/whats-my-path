@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface TypographyProps extends ThemeProps {
-  color_scheme: 'accent' | 'light' | 'dark';
+  color_scheme: 'accent' | 'light' | 'dark' | 'none';
 }
 
 export const Title = styled.h1<TypographyProps>`

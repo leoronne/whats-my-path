@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, ThemeProps {
-  color_scheme: 'accent' | 'light' | 'dark';
+  color_scheme: 'accent' | 'light' | 'dark' | 'none';
 }
 
 const Button = styled.button<ButtonProps>`
@@ -23,9 +23,18 @@ const Button = styled.button<ButtonProps>`
     color: ${({ color_scheme, theme }: ButtonProps) => theme.colors[color_scheme].button?.text};
   }
 
-  &:hover {
+  &:enabled:hover {
     transition: ${({ theme }: ButtonProps) => theme.transitions.easeInOut.base};
     background: ${({ color_scheme, theme }: ButtonProps) => theme.colors[color_scheme].button?.hover};
+  }
+
+  &:disabled {
+    background: ${({ theme }: ButtonProps) => theme.colors.disabled.base};
+    cursor: not-allowed;
+
+    span {
+      color: ${({ theme }: ButtonProps) => theme.colors.disabled.text};
+    }
   }
 `;
 
