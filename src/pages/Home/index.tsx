@@ -1,18 +1,29 @@
-import { ReactNode } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { Container } from './styles';
+import * as Styles from './styles';
 
-interface HomeProps {
-  children: ReactNode;
-}
+function Home() {
+  const history = useHistory();
 
-function Home({ children }: HomeProps) {
+  const handleStart = () => {
+    history.push('/master');
+  };
+
   return (
-    <Container>
-      <h1>Home</h1>
-      {children}
-    </Container>
+    <Styles.Container>
+      <Styles.Header>
+        <Styles.Title color_scheme="accent">
+          Welcome to <strong>iClinic</strong>
+        </Styles.Title>
+        <Styles.SubTitle color_scheme="accent">Frontend Challenge</Styles.SubTitle>
+      </Styles.Header>
+      <Styles.Main>
+        <Styles.Button type="button" color_scheme="accent" onClick={handleStart}>
+          <span>Start</span>
+        </Styles.Button>
+      </Styles.Main>
+    </Styles.Container>
   );
-};
+}
 
 export default Home;

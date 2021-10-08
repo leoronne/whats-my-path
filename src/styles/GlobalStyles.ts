@@ -10,5 +10,11 @@ export default createGlobalStyle`
 
   html, body, #root {
     scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+  }
+
+  strong {
+    font-weight: 700;
   }
 `;
