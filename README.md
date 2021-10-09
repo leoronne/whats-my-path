@@ -5,7 +5,7 @@
 <br>
 
 <p align="center">
-  Este arquivo também está disponível em outros idiomas: [Inglês](https://github.com/leoronne/whats-my-path/blob/master/README.en.md).
+  Este arquivo também está disponível em outros idiomas: <a href="/README.en.md">Inglês</a>.
 </p>
 
 <br>
@@ -71,6 +71,20 @@ Na [página](https://github.com/leoronne/whats-my-path/blob/master/src/pages/Mas
 No entanto, ele consegue redefinir seu alinhamento/mestre clicando no botão `choose your path again, Padawan`, como orientado na descrição do desafio.
 
 Foi implementado uma página adicional caso o usuário tente acessar uma rota inexistente, ela evidencia que a página tentando ser acessada não existe e contém um link que redireciona o usuário para a página inicial.
+
+<br>
+
+https://user-images.githubusercontent.com/47757685/136672035-ef17dacc-adc2-4298-8b79-fef7e03d4f98.mp4
+
+
+<br>
+
+https://user-images.githubusercontent.com/47757685/136672041-d82d4559-9848-4371-a760-e65c119efb48.mp4
+
+
+<br>
+
+https://user-images.githubusercontent.com/47757685/136672049-b161bffc-4c89-42be-8d44-802524767a8b.mp4
 
 <br>
 
