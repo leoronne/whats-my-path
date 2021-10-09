@@ -1,12 +1,13 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useCallback, useContext, useState, ReactNode } from 'react';
 
-import api from '../../services/api';
+import { defineMaster } from '../../services/define-master';
 
 interface PeopleContextProps {
-  getPath: () => Promise<void>;
-  path: 'light' | 'dark' | 'none';
+  getForcePath: (callback?: Function) => Promise<void>;
+  forcePath: 'light' | 'dark' | 'none';
   master: string;
   loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface PeopleProviderProps {
@@ -16,38 +17,33 @@ interface PeopleProviderProps {
 const PeopleContext = createContext<PeopleContextProps>({} as PeopleContextProps);
 
 function PeopleProvider({ children }: PeopleProviderProps) {
-  const [path, setPath] = useState<'light' | 'dark' | 'none'>('none');
+  const [forcePath, setForcePath] = useState<'light' | 'dark' | 'none'>('none');
   const [master, setMaster] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
-  const getPath = async (): Promise<void> => {
+  const getForcePath = useCallback(async (callback?: Function): Promise<void> => {
     try {
       setLoading(true);
 
-      const lightURL = 'people/1';
-      const darkURL = 'people/4';
+      const response = await defineMaster();
 
-      const light: Promise<PeopleResponseProps> = api.get(lightURL);
-      const dark: Promise<PeopleResponseProps> = api.get(darkURL);
-      await Promise.race([light, dark])
-        .then(({ data, config }) => {
-          setPath(config?.url === lightURL ? 'light' : 'dark');
-          setMaster(data?.name);
-        })
-        .catch((e: any) => {
-          throw new Error(e?.message);
-        });
+      setForcePath(response?.forcePath);
+      setMaster(response?.master);
+
+      if (callback) callback();
     } catch (e: any) {
-      // eslint-disable-next-line no-console
-      console.error(e);
-      setPath('none');
+      setForcePath('none');
       setMaster('');
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  return <PeopleContext.Provider value={{ getPath, path, master, loading }}>{children}</PeopleContext.Provider>;
+  return (
+    <PeopleContext.Provider value={{ getForcePath, forcePath, master, loading, setLoading }}>
+      {children}
+    </PeopleContext.Provider>
+  );
 }
 
 const usePeople = (): PeopleContextProps => {

@@ -7,13 +7,11 @@ import { LoaderSpinner } from '../../components/ui';
 import * as Styles from './styles';
 
 function Home() {
-  const { getPath, loading } = usePeople();
-
+  const { getForcePath, loading } = usePeople();
   const history = useHistory();
 
   const handleStart = async () => {
-    await getPath();
-    history.push('/master');
+    await getForcePath(() => history.push('/master'));
   };
 
   return (

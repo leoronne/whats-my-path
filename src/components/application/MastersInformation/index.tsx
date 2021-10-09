@@ -13,7 +13,7 @@ interface MastersInformationProps {
 function MastersInformation({ path, name }: MastersInformationProps) {
   return (
     <Styles.Container>
-      <Styles.Image src={path === 'light' ? luke : darth} />
+      <Styles.Image src={path === 'light' ? luke : darth} alt={`${name} visual picture`} />
       <Typography.Caption color_scheme={path}>
         Your master is <strong>{name}</strong>
       </Typography.Caption>

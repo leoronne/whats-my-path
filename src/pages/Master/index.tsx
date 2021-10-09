@@ -8,27 +8,32 @@ import { LoaderSpinner } from '../../components/ui';
 import * as Styles from './styles';
 
 function Master() {
+  const { getForcePath, forcePath, master, loading } = usePeople();
   const history = useHistory();
-  const { getPath, path, master, loading } = usePeople();
 
   const handleChoosePath = async () => {
-    await getPath();
+    await getForcePath();
   };
 
-  if (path === 'none' && !loading) {
+  if (forcePath === 'none' && !loading) {
+    /*
+     * If there is no forcePath defined and it's not loading
+     * the user should be redirected to the home page to start
+     * frin the beginning
+     */
     history.push('/');
     return <></>;
   }
 
   return (
-    <Styles.Container variant={path}>
+    <Styles.Container variant={forcePath}>
       <Styles.Header>
-        <BackButton variant={path} />
+        <BackButton variant={forcePath} />
       </Styles.Header>
 
       <Styles.Main>
-        <MastersInformation path={path} name={master} />
-        <Styles.Button type="button" color_scheme={path} onClick={handleChoosePath} disabled={loading}>
+        {forcePath !== 'none' && <MastersInformation path={forcePath} name={master} />}
+        <Styles.Button type="button" color_scheme={forcePath} onClick={handleChoosePath} disabled={loading}>
           {loading ? <LoaderSpinner /> : <span>choose your path again, Padawan</span>}
         </Styles.Button>
       </Styles.Main>

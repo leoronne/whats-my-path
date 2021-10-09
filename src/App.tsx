@@ -1,7 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 
 import HooksProvider from './hooks';
-
 import Routes from './routes';
 
 import GlobalStyles from './styles/GlobalStyles';
