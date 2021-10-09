@@ -5,7 +5,7 @@
 <br>
 
 <p align="center">
-  Read this in other languages: [Portuguese](https://github.com/leoronne/whats-my-path/blob/master/README.md).
+  Read this in other languages: <a href="/README.md">Portuguese</a>.
 </p>
 
 <br>
@@ -72,6 +72,20 @@ On the [page](https://github.com/leoronne/whats-my-path/blob/master/src/pages/Ma
 However, the user can define his alignment/master again by clicking the `choose your path again, Padawan` button, as requested in the challenge description.
 
 An additional page was implemented if the user tries to access a non-existent route, it shows that the page trying to be accessed doesn't exist and contains a link that redirects the user to the home page.
+
+<br>
+
+https://user-images.githubusercontent.com/47757685/136672035-ef17dacc-adc2-4298-8b79-fef7e03d4f98.mp4
+
+
+<br>
+
+https://user-images.githubusercontent.com/47757685/136672041-d82d4559-9848-4371-a760-e65c119efb48.mp4
+
+
+<br>
+
+https://user-images.githubusercontent.com/47757685/136672049-b161bffc-4c89-42be-8d44-802524767a8b.mp4
 
 <br>
 
