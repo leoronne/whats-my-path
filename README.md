@@ -1,46 +1,114 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="misc\img\transparent-banner.png" width="60%" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+Este arquivo também está disponível em outros idiomas: [Inglês](https://github.com/leoronne/whats-my-path/blob/master/README.en.md).
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
+##
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <a href="#projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#techs">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#informacoes-gerais">Informações Gerais</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#instalacao">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#inicializacao">Inicialização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#testes">Testes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#licenca">Licença</a>
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="center">
+  <img src="misc\img\banner.png"/>
+</p>
 
-### `yarn build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Esse repositório contêm um [desafio front-end](https://github.com/iclinic/challenge-front) proposto pela iClinic.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O propósito da aplicação é mostrar ao usuário em qual lado da Força ele está e qual o seu mestre, com base no tempo de resposta de duas requisições à SWAPI (uma API do Star Wars) - o determinante aqui é qual requisição retorna os dados primeiro.
 
-### `yarn eject`
+Há duas opções para o alinhamento/mester:
+-> Luz, o mestre será Luke Skywalker;
+-> Sombrio, o mestre será Darth Vader.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Hospedado [aqui](https://whatsmypath.ronne.dev).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Techs
 
-## Learn More
+- [x] [ReactJS](https://reactjs.org);
+- [x] [TypeScript](https://www.typescriptlang.org/);
+- [x] [Styled Components](https://styled-components.com/).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Informações Gerais
+
+Como explicado acima, o alinhamento/mestre é definido por qual requisição é finalizada primeiro, para atingir isso foi utilizado [Promise.race()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise/race). O serviço que fica responsável por essas requisições foi separado dentro da pasta `src/services`, para individualizar a sua responsabilidade e facilitar nos testes unitários.
+
+Para determinar o alinhamento foi implementado uma regra que compara a URL da response do `Promise.race`, já que no endpoint que retorna os dados do mestre não há uma propriedade indicando o alinhamento dele. O alinhamento é utilizado dentro da aplicação para definir a UI das telas (cores, em específico) ao invés de usar diretamente o nome do mestre.
+
+Os dados de alinhamento/mestre e loading das requests ficam dentro do hook `usePeople` para poder compartilhar os dados entre os componentes que os utilizam, assim como à função que chama o serviço `define-master`.
+
+Enquanto a aplicação faz as requisições os botões ficam desativados e o texto é substituído por um spinner para melhorar a experiência do usuário, também é apresentado uma notificação que indica ao usuário qual alinhamento ele faz parte ou caso ocorra algum erro no fluxo.
+
+Na [página](https://github.com/leoronne/whats-my-path/blob/master/src/pages/Master/index.tsx) onde apresenta qual é o mestre, há uma regra que redireciona o usuário para página inicial caso ele não tenha iniciado o fluxo através da página inicial. Isso foi implementado para impedir que o usuário acesse diretamente a rota `/master` e fazer com que o processo sempre deva iniciar na página inicial, através do botão "Start" (eliminando a necessidade do `useEffect` toda vez que ele acessa a rota, seja recarregando a página ou acessando ela diretamente).
+
+No entanto, ele consegue redefinir seu alinhamento/mestre clicando no botão `choose your path again, Padawan`, como definido na descrição do desafio.
+
+Foi implementado uma página adicional caso o usuário tente acessar uma rota inexistente, ela evidencia que a página tentando ser acessada não existe e contém um link que o redireciona para a página inicial.
+
+<br>
+
+<p align="center">
+  <img src="misc\img\project-1.gif"/>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="misc\img\project-2.gif"/>
+</p>
+
+<br>
+
+## Instalação
+
+Primeiro clone o projeto utilizando `git clone https://github.com/leoronne/whats-my-path.git` e depois instale as dependências utilizando `yarn` no seu terminal (no diretório raiz do projeto).
+
+<br>
+
+## Inicialização
+
+Para iniciar a aplicação, utilize `yarn start` no seu terminal.
+
+<strong>Nota: Lembre-se de criar um arquivo .env no diretório raiz do projeto baseado no arquivo de [exemplo](https://github.com/leoronne/whats-my-path/blob/master/.env.example).</strong>
+
+<br>
+
+## Testes
+
+Para rodar os tests dessa aplicação, utilize o comando `yarn test` no seu terminal. Caso você deseje gerar os arquivos de cobertura dos testes, utilize `yarn test:cover`.
+
+<br>
+
+## Licença
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](https://github.com/leoronne/whats-my-path/blob/master/LICENSE)**
+- Copyright 2021 © <a href="https://github.com/leoronne" target="_blank">Leonardo Ronne</a>.
+
+##
