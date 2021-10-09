@@ -1,4 +1,7 @@
 import { createContext, useCallback, useContext, useState, ReactNode } from 'react';
+import toast from 'react-hot-toast';
+
+import { colors } from '../../styles/theme';
 
 import { defineMaster } from '../../services/define-master';
 
@@ -31,9 +34,18 @@ function PeopleProvider({ children }: PeopleProviderProps) {
       setMaster(response?.master);
 
       if (callback) callback();
+
+      toast(`It looks like you're on the ${response?.forcePath} side of the Force`, {
+        duration: 2500,
+        style: {
+          background: colors[response?.forcePath].button?.background,
+          color: colors[response?.forcePath].button?.text,
+        },
+      });
     } catch (e: any) {
-      setForcePath('none');
-      setMaster('');
+      toast.error(`Sorry, we had a problem defining which side of the Force you're on`, {
+        duration: 3500,
+      });
     } finally {
       setLoading(false);
     }

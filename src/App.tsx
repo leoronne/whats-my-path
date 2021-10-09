@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'styled-components';
+import { Toaster } from 'react-hot-toast';
 
 import HooksProvider from './hooks';
 import Routes from './routes';
@@ -13,6 +14,7 @@ function App() {
     <HooksProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
+        <Toaster position="top-right" gutter={8} />
         <Routes />
       </ThemeProvider>
     </HooksProvider>
