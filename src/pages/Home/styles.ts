@@ -36,6 +36,8 @@ export const SubTitle = styled(Typography.SubTitle)<ThemeProps>`
   font-size: 12px;
   line-height: 15px;
   margin-top: 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
 
   @media (min-width: 425px) {
     ${({ theme }: ThemeProps) => theme.typography.h6};

@@ -1,6 +1,4 @@
-import { Link } from '../../ui';
-
-import * as Styles from './styles';
+import { Link, Typography, Icons } from '../../ui';
 
 interface BackButtonProps {
   variant: 'light' | 'dark' | 'none';
@@ -9,8 +7,9 @@ interface BackButtonProps {
 function BackButton({ variant }: BackButtonProps) {
   return (
     <Link to="/" height={47} variant={variant}>
-      <Styles.ArrowLeftIcon />
-      <Styles.Text>back</Styles.Text>
+      <Icons.ArrowLeftIcon />
+
+      <Typography.Text>back</Typography.Text>
     </Link>
   );
 }

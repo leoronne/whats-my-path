@@ -37,6 +37,7 @@ function PeopleProvider({ children }: PeopleProviderProps) {
 
       toast(`It looks like you're on the ${response?.forcePath} side of the Force`, {
         duration: 2500,
+        id: response?.forcePath,
         style: {
           background: colors[response?.forcePath].button?.background,
           color: colors[response?.forcePath].button?.text,

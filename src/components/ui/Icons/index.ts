@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 import { ReactComponent as ArrowLeft } from '../../../assets/img/svg/arrow-left.svg';
+import { ReactComponent as Spinner } from '../../../assets/img/svg/eclipse-spinner.svg';
 
-export const Text = styled.span`
-  font-size: 18px;
-  line-height: 22px;
-  padding: 0 5px 0 10px;
+export const LoaderSpinner = styled(Spinner)`
+  width: 30px;
+  height: 30px;
 `;
 
 export const ArrowLeftIcon = styled(ArrowLeft)<ThemeProps>`

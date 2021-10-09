@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom';
 
 import { usePeople } from '../../hooks';
 
-import { LoaderSpinner } from '../../components/ui';
+import { Icons } from '../../components/ui';
 
 import * as Styles from './styles';
 
@@ -24,7 +24,7 @@ function Home() {
       </Styles.Header>
       <Styles.Main>
         <Styles.Button type="button" color_scheme="accent" onClick={handleStart} disabled={loading}>
-          {loading ? <LoaderSpinner /> : <span>Start</span>}
+          {loading ? <Icons.LoaderSpinner /> : <span>Start</span>}
         </Styles.Button>
       </Styles.Main>
     </Styles.Container>

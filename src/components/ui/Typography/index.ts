@@ -18,3 +18,9 @@ export const SubTitle = styled.h6<TypographyProps>`
   color: ${({ theme, color_scheme }: TypographyProps) => theme.colors[color_scheme].text};
   ${({ theme }: TypographyProps) => theme.typography.h6};
 `;
+
+export const Text = styled.span`
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0 5px 0 10px;
+`;

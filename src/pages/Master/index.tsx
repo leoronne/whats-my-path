@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { usePeople } from '../../hooks';
 
 import { BackButton, MastersInformation } from '../../components/application';
-import { LoaderSpinner } from '../../components/ui';
+import { Icons } from '../../components/ui';
 
 import * as Styles from './styles';
 
@@ -34,7 +34,7 @@ function Master() {
       <Styles.Main>
         {forcePath !== 'none' && <MastersInformation path={forcePath} name={master} />}
         <Styles.Button type="button" color_scheme={forcePath} onClick={handleChoosePath} disabled={loading}>
-          {loading ? <LoaderSpinner /> : <span>choose your path again, Padawan</span>}
+          {loading ? <Icons.LoaderSpinner /> : <span>choose your path again, Padawan</span>}
         </Styles.Button>
       </Styles.Main>
     </Styles.Container>

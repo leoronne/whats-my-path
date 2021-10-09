@@ -1,4 +1,4 @@
 export { default as Link } from './Link';
 export { default as Button } from './Button';
-export { default as LoaderSpinner } from './LoaderSpinner';
+export * as Icons from './Icons';
 export * as Typography from './Typography';

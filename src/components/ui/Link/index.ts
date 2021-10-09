@@ -13,7 +13,7 @@ const Link = styled(RouterLink)<LinkProps>`
   height: ${({ height }: LinkProps) => (height ? `${height}px` : 'fit-content')};
   width: fit-content;
   padding: 0 5px;
-  color: ${({ variant, theme }: LinkProps) => theme.colors[variant].text};
+  color: ${({ variant, theme }: LinkProps) => theme.colors[variant].link?.text};
   border-radius: ${({ theme }: LinkProps) => theme.borderRadius.large};
   transition: ${({ theme }: LinkProps) => theme.transitions.easeInOut.base};
 
@@ -21,12 +21,11 @@ const Link = styled(RouterLink)<LinkProps>`
 
   &:hover {
     transition: ${({ theme }: LinkProps) => theme.transitions.easeInOut.base};
-    background: ${({ variant }: LinkProps) =>
-      variant === 'light' ? `rgba(43, 43, 43, 0.15)` : `rgba(53, 65, 77, 0.5)`};
+    background: ${({ variant, theme }: LinkProps) => theme.colors[variant].link?.hover};
   }
 
   svg > path {
-    fill: ${({ variant, theme }: LinkProps) => theme.colors[variant].text};
+    fill: ${({ variant, theme }: LinkProps) => theme.colors[variant].link?.text};
   }
 `;
 

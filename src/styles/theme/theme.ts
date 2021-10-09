@@ -9,6 +9,10 @@ export const colors: ColorsProps = {
       text: 'rgba(255, 255, 255, 1)',
       hover: 'rgba(44, 151, 209, 0.85)',
     },
+    link: {
+      text: 'rgba(255, 255, 255, 1)',
+      hover: 'rgba(44, 151, 209, 0.85)',
+    },
   },
   dark: {
     base: 'rgba(43, 43, 43, 1)',
@@ -17,6 +21,10 @@ export const colors: ColorsProps = {
       background: 'rgba(255, 255, 255, 1)',
       text: 'rgba(42, 42, 42, 1)',
       hover: 'rgba(255, 255, 255, 0.85)',
+    },
+    link: {
+      text: 'rgba(255, 255, 255, 1)',
+      hover: 'rgba(70, 70, 70, 0.7)',
     },
   },
   light: {
@@ -27,6 +35,10 @@ export const colors: ColorsProps = {
       text: 'rgba(251, 254, 99, 1)',
       hover: 'rgba(42, 42, 42, 0.93)',
     },
+    link: {
+      text: 'rgba(42, 42, 42, 1)',
+      hover: 'rgba(43, 43, 43, 0.17)',
+    },
   },
   none: {
     base: 'rgba(255, 255, 255, 1)',
@@ -35,6 +47,10 @@ export const colors: ColorsProps = {
       background: 'rgba(44, 151, 209, 1)',
       text: 'rgba(255, 255, 255, 1)',
       hover: 'rgba(44, 151, 209, 0.85)',
+    },
+    link: {
+      text: 'rgba(44, 151, 209, 1)',
+      hover: 'rgba(44, 151, 209, 0.15)',
     },
   },
   disabled: {
@@ -75,8 +91,6 @@ export const typography: TypographyProps = {
     fontSize: '14px',
     fontWeight: '400',
     lineHeight: '17px',
-    letterSpacing: '0.35em',
-    textTransform: 'uppercase',
   },
   button: {
     fontFamily: `'Montserrat', sans-serif`,

@@ -7,6 +7,10 @@ type ColorsProps = {
       text: string;
       hover: string;
     };
+    link?: {
+      text: string;
+      hover: string;
+    };
   };
 };
 
