@@ -4,7 +4,9 @@
 
 <br>
 
-Read this in other languages: [Portuguese](https://github.com/leoronne/whats-my-path/blob/master/README.md).
+<p align="center">
+  Read this in other languages: [Portuguese](https://github.com/leoronne/whats-my-path/blob/master/README.md).
+</p>
 
 <br>
 
@@ -13,7 +15,7 @@ Read this in other languages: [Portuguese](https://github.com/leoronne/whats-my-
 <p align="center">
   <a href="#project-star2">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#techs-rocket">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#general-information-and-functionalities-information_source">General Information</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#general-information-information_source">General Information</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installation-wrench">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#start-on">Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#test-heavy_check_mark">Test</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -37,10 +39,8 @@ This repo contains a [front-end challenge](https://github.com/iclinic/challenge-
 The purpose of the application is to show the user which side of the Force he's on and who's his master, based on the response time of two SWAPI (a Star Wars API) requests - the determinant here is which request responds first.
 
 There are two options for alignment/master:
--> Light, the master will be Luke Skywalker;
--> Dark, the master will be Darth Vader.
-
-<br>
+- Light, the master will be Luke Skywalker;
+- Dark, the master will be Darth Vader.
 
 Deployed [here](https://whatsmypath.ronne.dev).
 
@@ -55,11 +55,13 @@ Deployed [here](https://whatsmypath.ronne.dev).
 
 <br>
 
-## General Information and Functionalities :information_source:
+## General Information :information_source:
 
 As explained above, the alignment/master is defined by which request is completed first, to achieve this it was used  [Promise.race()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise/race). The service that is responsible for these requests has been separated into the `src/services` folder, to individualize its responsibility and facilitate unit testing.
 
-To determine the alignment of the user, it was implemented a rule that compares the response URL of `Promise.race`, since in the endpoint that returns the master's data there is no property indicating its alignment (side of the Force). The alignment is used within the application to define the UI of the screens (colors, in particular) instead of directly using the name of the master.
+To determine the alignment of the user, it was implemented a rule that compares the response URL of `Promise.race`, since in the endpoint that returns the master's data there is no property indicating its alignment (side of the Force).
+
+The alignment is used within the application to define the UI of the pages (colors, in particular) instead of directly using the name of the master.
 
 The alignment/master data are inside the `usePeople` hook, in order to share the data between the components that use them, as well as the function that calls the `define-master` service.
 
@@ -70,18 +72,6 @@ On the [page](https://github.com/leoronne/whats-my-path/blob/master/src/pages/Ma
 However, the user can define his alignment/master again by clicking the `choose your path again, Padawan` button, as requested in the challenge description.
 
 An additional page was implemented if the user tries to access a non-existent route, it shows that the page trying to be accessed doesn't exist and contains a link that redirects the user to the home page.
-
-<br>
-
-<p align="center">
-  <img src="misc\img\project-1.gif"/>
-</p>
-
-<br>
-
-<p align="center">
-  <img src="misc\img\project-2.gif"/>
-</p>
 
 <br>
 
